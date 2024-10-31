@@ -75,6 +75,88 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-mockjs" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/31/mockjs/" class="article-date">
+  <time class="dt-published" datetime="2024-10-31T12:02:30.000Z" itemprop="datePublished">2024-10-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/10/31/mockjs/">Mock.js</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Mock-js"><a href="#Mock-js" class="headerlink" title="Mock.js"></a>Mock.js</h1><p>来自 CSDN：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Mme061300/article/details/130343270">Mock.js 超全 超详细总结 保姆级别的教程_mockjs-CSDN 博客</a></p>
+<h3 id="一、Mock-js-介绍"><a href="#一、Mock-js-介绍" class="headerlink" title="一、Mock.js 介绍"></a>一、Mock.js 介绍</h3><p>(1). 什么是 Mock.js？</p>
+<p>mock.js:是一款模拟数据生成器，可以生成随机数据，拦截 Ajax 请求</p>
+<p>(2). Mock.js 的特性</p>
+<ol>
+<li>使用 mockjs 模拟后端接口，可随机生成所需数据，模拟对数据的增删改查</li>
+<li>数据类型丰富，支持生成随机的文本、数字、布尔值、日期、邮箱、链接、图片、颜色等。</li>
+<li>拦截 Ajax 请求不需要修改既有代码就可以拦截，返回模拟的响应数据。</li>
+</ol>
+<h3 id="二、Mock-js-的使用"><a href="#二、Mock-js-的使用" class="headerlink" title="二、Mock.js 的使用"></a>二、Mock.js 的使用</h3><p><strong>(1). 安装</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mockjs</span><br></pre></td></tr></table></figure>
+
+<p><strong>(2). 在项目中使用 Mock.js</strong></p>
+<ol>
+<li>在 src 目录下创建 mock 目录，定义 mock 主文件 index.js，并在该文件中存放我们的 mock 数据</li>
+</ol>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/56c47ae06c69a3be84560368f03cb8e9.png" alt="img"></p>
+<ol start="2">
+<li>在 main.js 引入 mock 文件，方便在其他文件中使用</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &quot;@/mockjs/index&quot;;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>开始使用</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Mock.mock( url, type, template)</span><br><span class="line">第一个参数 url 为请求路径，</span><br><span class="line">第二个参数 type 为请求类型 如：get、popst、delete、put 等</span><br><span class="line">第三个参数是生成的数据，作为响应数据返回。可以为对象，也可以为函数，函数需要return</span><br></pre></td></tr></table></figure>
+
+<p>！！！下方是<strong>Mock.js 的 index 文件</strong> ！！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">// 引用 Mock</span><br><span class="line">const Mock = require(&#x27;mockjs&#x27;)</span><br><span class="line"></span><br><span class="line">export const userData = Mock.mock(&quot;/data/list&quot;, &quot;get&quot;, &#123;</span><br><span class="line">  // 属性 list 的值是一个数组，随机生成 1 到 10 个元素</span><br><span class="line">  &quot;list|1-10&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      // 随机生成1-10个★</span><br><span class="line">      &quot;string|1-10&quot;: &quot;★&quot;,</span><br><span class="line">      // 随机生成1-100之间的任意整数</span><br><span class="line">      &quot;number|1-100&quot;: 1,</span><br><span class="line">      // 生成一个浮点数，整数部分大于等于 1、小于等于 100，小数部分保留 1 到 10 位。</span><br><span class="line">      &quot;floatNumber|1-100.1-10&quot;: 1,</span><br><span class="line">      // 随机生成一个布尔值，值为 true 的概率是 1/2，值为 false 的概率同样是 1/2。</span><br><span class="line">      &quot;boolean|1&quot;: true,</span><br><span class="line">      // 随机生成一个布尔值，值为 false 的概率是 2 / (2 + 5)，值为 true 的概率是 5 / (2 + 5)。</span><br><span class="line">      &#x27;bool|2-5&#x27;: false,</span><br><span class="line">      // 从属性值 object 中随机选取 2-4 个属性</span><br><span class="line">      &quot;object|2-4&quot;: &#123;</span><br><span class="line">        &quot;310000&quot;: &quot;上海市&quot;,</span><br><span class="line">        &quot;320000&quot;: &quot;江苏省&quot;,</span><br><span class="line">        &quot;330000&quot;: &quot;浙江省&quot;,</span><br><span class="line">        &quot;340000&quot;: &quot;安徽省&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      // 通过重复属性值 array 生成一个新数组，重复次数为 2</span><br><span class="line">      &quot;array|2&quot;: [</span><br><span class="line">        &quot;AMD&quot;,</span><br><span class="line">        &quot;CMD&quot;,</span><br><span class="line">        &quot;UMD&quot;</span><br><span class="line">      ],</span><br><span class="line">      // 执行函数 function，取其返回值作为最终的属性值，函数的上下文为属性 &#x27;name&#x27; 所在的对象。</span><br><span class="line">      &#x27;foo&#x27;: &#x27;哇哈哈哈哈&#x27;,</span><br><span class="line">      &#x27;name&#x27;: function () &#123;</span><br><span class="line">        return this.foo</span><br><span class="line">      &#125;,</span><br><span class="line">      // 根据正则表达式 regexp 反向生成可以匹配它的字符串。用于生成自定义格式的字符串。</span><br><span class="line">      &#x27;regexp&#x27;: /\d&#123;5,10&#125;/,</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">  code: 200,</span><br><span class="line">  message: &#x27;ok&#x27;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>！！！下方是需要<strong>使用<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=mockjs&spm=1001.2101.3001.7020">mockjs</a>数据的文件</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 首先需要引入axios 如果没安装的话 在终端输入npm i axios 安装一下</span><br><span class="line">import axios from &#x27;axios&#x27;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">	methods: &#123;</span><br><span class="line">		getData() &#123;</span><br><span class="line">          axios.get(&quot;/data/list&quot;).then(res =&gt; &#123;</span><br><span class="line">            console.log(res);</span><br><span class="line">          &#125;).catch(error =&gt; &#123;</span><br><span class="line">            console.log(error);</span><br><span class="line">          &#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>！！！打印出来的效果 ！！！</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/52af2a96bef1f38ea5d493288d1afac8.png" alt="img"></p>
+<p><strong>(3). Mock.Random 的使用</strong></p>
+<ol>
+<li>Mock.Random 是一个工具类，用于生成各种随机数据。</li>
+<li>Mock.Random 的方法在数据模板中称为『占位符』，书写格式为 @占位符(参数) 。</li>
+</ol>
+<p>！！！ 下方是使用<strong>random 生成数据的方法</strong> ！！！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line">const Mock = require(&quot;mockjs&quot;)</span><br><span class="line">const Random = Mock.Random</span><br><span class="line"></span><br><span class="line">export const userData = Mock.mock(&quot;/data/list&quot;, &quot;post&quot;, &#123;</span><br><span class="line">  // 属性 list 的值是一个数组，随机生成 1 到 10 个元素</span><br><span class="line">  &quot;list|1-10&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      // 生成随机字符串 长度为 5</span><br><span class="line">      &quot;string&quot;: Random.string(5), // &quot;jPXEu&quot;</span><br><span class="line">      &quot;string2&quot;: &#x27;@string(5)&#x27;, // &quot;jPXEu&quot;</span><br><span class="line">      // 生成随机邮箱地址 可以指定域名，例如 163.com</span><br><span class="line">      &quot;email&quot;: Random.email(&#x27;163.com&#x27;), // &quot;l.fvilfpz@163.com&quot;</span><br><span class="line">      &quot;email2&quot;: &#x27;@email()&#x27;, // &quot;l.fvilfpz@163.com&quot;</span><br><span class="line">      // 返回一个随机的布尔值。</span><br><span class="line">      &quot;boolean&quot;: Random.boolean(), // true</span><br><span class="line">      &quot;boolean2&quot;: &#x27;@boolean()&#x27;, // true</span><br><span class="line">      // 生成 60-100 随机整数</span><br><span class="line">      &quot;point&quot;: Random.integer(60, 100), // 69</span><br><span class="line">      &quot;point2&quot;: &#x27;@integer(60, 100)&#x27;, // 98</span><br><span class="line">      // // 生成一个浮点数，整数部分大于等于 1、小于等于 100，小数部分保留 3 到 5 位。</span><br><span class="line">      &quot;floatNumber&quot;: Random.float(1, 100, 3, 5), // 60.695</span><br><span class="line">      &quot;floatNumber2&quot;: &#x27;@float(1, 100, 3, 5)&#x27;, // 19.29368</span><br><span class="line">      // 随机日期</span><br><span class="line">      &quot;date&quot;: Random.datetime(&#x27;yyyy-MM-dd&#x27;), // &quot;2017-05-01&quot;</span><br><span class="line">      &quot;date2&quot;: &quot;@datetime()&quot;, // &quot;1973-06-12 13:05:18&quot;</span><br><span class="line">      // 随机时间</span><br><span class="line">      &quot;time&quot;: Random.time(), // &quot;21:33:01&quot;</span><br><span class="line">      &quot;time2&quot;: &quot;@time()&quot;, // &quot;21:33:01&quot;</span><br><span class="line">      // 当前日期</span><br><span class="line">      &quot;now&quot;: Random.now(&#x27;year&#x27;), // &quot;2023-01-01 00:00:00&quot;</span><br><span class="line">      &quot;now2&quot;: &quot;@now(&#x27;year&#x27;)&quot;, // &quot;2023-01-01 00:00:00&quot;</span><br><span class="line">      // 随机生成图片 Random.image( size, background, foreground, format, text )</span><br><span class="line">      &quot;img&quot;: Random.image(&#x27;200x100&#x27;, &#x27;#16d46b&#x27;, &#x27;#fff&#x27;, &#x27;png&#x27;, &#x27;Hello&#x27;), // &quot;http://dummyimage.com/200x100/16d46b/fff.png&amp;text=Hello&quot;</span><br><span class="line">      // 随机生成颜色,格式为 &#x27;#RRGGBB&#x27;。</span><br><span class="line">      &quot;color&quot;: Random.color(), // &quot;#94f279&quot;</span><br><span class="line">      &quot;color2&quot;: &#x27;@color()&#x27;, // &quot;#94f279&quot;</span><br><span class="line">      // 随机生成颜色,格式为 &#x27;rgb(r, g, b, a)&#x27;。</span><br><span class="line">      &quot;rgbaColor&quot;: Random.rgba(), // &quot;rgba(242, 121, 183, 0.22)&quot;</span><br><span class="line">      // 随机生成一段文本 文本中句子的个数为 2 到 5。默认值为 3 到 7</span><br><span class="line">      &quot;paragraph&quot;: Random.paragraph(2, 5), // &quot;Ymkp nvyryy vieq hlqdb pplbbikbd mtqiq uue jdufhkxy wpybjqi djico jxqkwvw kbmsscpfw owtgsqwn.&quot;</span><br><span class="line">      &quot;paragraph2&quot;: &#x27;@paragraph(2, 5)&#x27;,  // &quot;Ymkp nvyryy vieq hlqdb pplbbikbd mtqiq uue jdufhkxy wpybjqi djico jxqkwvw kbmsscpfw owtgsqwn.&quot;</span><br><span class="line">      // 随机生成一段中文文本 参数同 Random.paragraph( min?, max? )</span><br><span class="line">      &quot;cparagraph&quot;: Random.cparagraph(), // &quot;重工边政应信江半实金改北反调程五八。张资圆向规成新家天交对传许。军较军七养多认维市般况验式华行证。&quot;</span><br><span class="line">      &quot;cparagraph2&quot;: &#x27;@cparagraph(2, 5)&#x27;, // &quot;重工边政应信江半实金改北反调程五八。张资圆向规成新家天交对传许。军较军七养多认维市般况验式华行证。&quot;</span><br><span class="line">      // 随机生成一个句子，第一个单词的首字母大写。 句子中单词的个数为 2 到 5 。默认值为 12 到 18</span><br><span class="line">      &quot;sentence&quot;: Random.sentence(2, 5), // &quot;Yyfvs genrdeiyf.&quot;</span><br><span class="line">      &quot;sentence2&quot;: &#x27;@sentence(2, 5)&#x27;, // &quot;Yyfvs genrdeiyf.&quot;</span><br><span class="line">      // 随机生成一段中文文本，参数同 Random.sentence( min?, max? )</span><br><span class="line">      &quot;csentence&quot;: Random.csentence(2, 5), // &quot;积现。&quot;</span><br><span class="line">      &quot;csentence2&quot;: &#x27;@csentence(2, 5)&#x27;, // &quot;积现。&quot;</span><br><span class="line">      // 随机生成一个单词，单词中字符的个数为 2 到 5 个。默认值为 3 到 10</span><br><span class="line">      &quot;word&quot;: Random.word(2, 5), // &quot;nlgcl&quot;</span><br><span class="line">      &quot;word2&quot;: &#x27;@word(2, 5)&#x27;, // &quot;nlgcl&quot;</span><br><span class="line">      // 随机生成一个汉字，汉字中字符串的长度为 2 到 5 个。默认值为 1</span><br><span class="line">      &quot;cword&quot;: Random.cword(2, 5), // &quot;系即感&quot;</span><br><span class="line">      &quot;cword2&quot;: &#x27;@cword(2, 5)&#x27;, // &quot;系即感&quot;</span><br><span class="line">      // 随机生成一句标题，其中每个单词的首字母大写。单词中字符的个数为 2 到 5。默认值为 3 到 7</span><br><span class="line">      &quot;title&quot;: Random.title(2, 5), // &quot;Vmpx Rizds Smguoqki&quot;</span><br><span class="line">      &quot;title2&quot;: &#x27;@title(2, 5)&#x27;, // &quot;Vmpx Rizds Smguoqki&quot;</span><br><span class="line">      // 随机生成一句中文标题，参数同 Random.title( min?, max? )</span><br><span class="line">      &quot;ctitle&quot;: Random.ctitle(2, 5), // &quot;其感期&quot;</span><br><span class="line">      &quot;ctitle2&quot;: &#x27;@ctitle(2, 5)&#x27;, // &quot;其感期&quot;</span><br><span class="line">      // 随机生成一个常见的英文名</span><br><span class="line">      &quot;firstName&quot;: Random.first(), // &quot;Michelle&quot;</span><br><span class="line">      &quot;firstName2&quot;: &#x27;@first()&#x27;, // &quot;Jose&quot;</span><br><span class="line">      // 随机生成一个常见的英文姓。</span><br><span class="line">      &quot;lastName&quot;: Random.last(), // &quot;Taylor&quot;</span><br><span class="line">      &quot;lastName2&quot;: &#x27;@last()&#x27;, // &quot;Clark&quot;</span><br><span class="line">      // 随机生成一个常见的英文姓名。括号里的布尔值，指示是否生成中间名（可选）。</span><br><span class="line">      &quot;name&quot;: Random.name(true), // &quot;Donald Eric Jackson&quot;</span><br><span class="line">      &quot;name2&quot;: &#x27;@name(true)&#x27;, // &quot;Donald Eric Jackson&quot;</span><br><span class="line">      // 随机生成一个常见的中文姓</span><br><span class="line">      &quot;cfirstName&quot;: Random.cfirst(), // &quot;任&quot;</span><br><span class="line">      &quot;cfirstName2&quot;: &#x27;@cfirst()&#x27;, // &quot;郭&quot;</span><br><span class="line">      // 随机生成一个常见的中文名。</span><br><span class="line">      &quot;clastName&quot;: Random.clast(), // &quot;芳&quot;</span><br><span class="line">      &quot;clastName2&quot;: &#x27;@clast()&#x27;, // &quot;芳&quot;</span><br><span class="line">      // 随机生成一个常见的中文姓名。</span><br><span class="line">      &quot;cname&quot;: Random.cname(), // &quot;程强&quot;</span><br><span class="line">      &quot;cname2&quot;: &#x27;@cname()&#x27;, // &quot;程强&quot;</span><br><span class="line">      // 随机生成一个URL。可以指定url协议，域名和端口号。例如&#x27;http&#x27; nuysoft.com。</span><br><span class="line">      &#x27;url&#x27;: Random.url(&#x27;http&#x27;, &#x27;nuysoft.com&#x27;), // &quot;http://nuysoft.com/ysq&quot;</span><br><span class="line">      &#x27;url2&#x27;: &#x27;@url()&#x27;, // &quot;http://nuysoft.com/ysq&quot;</span><br><span class="line">      // 随机生成一个 IP 地址</span><br><span class="line">      &#x27;IP&#x27;: Random.ip(), // &quot;112.127.151.37&quot;</span><br><span class="line">      &#x27;IP2&#x27;: &#x27;@ip()&#x27;, // &quot;233.144.17.219&quot;</span><br><span class="line">      // 随机生成一个（中国）大区。</span><br><span class="line">      &quot;region&quot;: Random.region(), // &quot;华北&quot;</span><br><span class="line">      &quot;region2&quot;: &#x27;@region()&#x27;, // &quot;华北&quot;</span><br><span class="line">      // 随机生成一个（中国）省（或直辖市、自治区、特别行政区）。</span><br><span class="line">      &quot;province&quot;: Random.province(), // &quot;澳门特别行政区&quot;</span><br><span class="line">      &quot;province2&quot;: &#x27;@province()&#x27;, // &quot;澳门特别行政区&quot;</span><br><span class="line">      // 随机生成一个（中国）市。括号里的布尔值，指是否生成所属的省（可选）</span><br><span class="line">      &quot;city&quot;: Random.city(true), // &quot;广东省 肇庆市&quot;</span><br><span class="line">      &quot;city2&quot;: &#x27;@city()&#x27;, // &quot;广东省 肇庆市&quot;</span><br><span class="line">      // 随机生成一个（中国）县。括号里的布尔值，指是否生成所属的省、市（可选）</span><br><span class="line">      &quot;county&quot;: Random.county(true), // &quot;江苏省 常州市 其它区&quot;</span><br><span class="line">      &quot;county2&quot;: &#x27;@county()&#x27;, // &quot;江苏省 常州市 其它区&quot;</span><br><span class="line">      // 随机生成一个邮政编码（六位数字）。</span><br><span class="line">      &quot;zip&quot;: Random.zip(), // &quot;806124&quot;</span><br><span class="line">      &quot;zip2&quot;: &#x27;@zip()&#x27;, // &quot;806124&quot;</span><br><span class="line">      // 把字符串的第一个字母转换为大写。</span><br><span class="line">      &quot;capitalize&quot;: Random.capitalize(&#x27;hello&#x27;), // &quot;Hello&quot;</span><br><span class="line">      &quot;capitalize2&quot;: &#x27;@capitalize(&quot;hello&quot;)&#x27;, // &quot;Hello&quot;</span><br><span class="line">      // 把字符串转换为大写。</span><br><span class="line">      &quot;upper&quot;: Random.upper(&#x27;hello&#x27;), // &quot;HELLO&quot;</span><br><span class="line">      &quot;upper2&quot;: &#x27;@upper(&quot;hello&quot;)&#x27;,  // &quot;HELLO&quot;</span><br><span class="line">      // 把字符串转换为小写。</span><br><span class="line">      &quot;lower&quot;: Random.lower(&#x27;HELLO&#x27;), // &quot;hello&quot;</span><br><span class="line">      &quot;lower2&quot;: &#x27;@lower(&quot;HELLO&quot;)&#x27;, // &quot;hello&quot;</span><br><span class="line">      // 从数组中随机选取一个元素并返回。</span><br><span class="line">      &quot;pick&quot;: Random.pick([&#x27;a&#x27;, &#x27;e&#x27;, &#x27;i&#x27;, &#x27;o&#x27;, &#x27;u&#x27;]), // &quot;e&quot;</span><br><span class="line">      &quot;pick2&quot;: &#x27;@pick([&quot;a&quot;, &quot;e&quot;, &quot;i&quot;, &quot;o&quot;, &quot;u&quot;])&#x27;, // &quot;e&quot;</span><br><span class="line">      // 打乱数组中元素的顺序，并返回。</span><br><span class="line">      &quot;shuffle&quot;: Random.shuffle([&#x27;a&#x27;, &#x27;e&#x27;, &#x27;i&#x27;, &#x27;o&#x27;, &#x27;u&#x27;]), // [&#x27;o&#x27;, &#x27;a&#x27;, &#x27;i&#x27;, &#x27;e&#x27;, &#x27;u&#x27;]</span><br><span class="line">      &quot;shuffle2&quot;: &#x27;@shuffle([&quot;a&quot;, &quot;e&quot;, &quot;i&quot;, &quot;o&quot;, &quot;u&quot;])&#x27;, // [&#x27;o&#x27;, &#x27;a&#x27;, &#x27;i&#x27;, &#x27;e&#x27;, &#x27;u&#x27;]</span><br><span class="line">      // 随机生成一个 18 位身份证。</span><br><span class="line">      &quot;id&quot;: Random.id(), // 112.127.151.37</span><br><span class="line">      &quot;id2&quot;: &#x27;@id()&#x27; // 97.46.129.222</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">  code: 200,</span><br><span class="line">  message: &#x27;ok&#x27;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://duwhywu.github.io/2024/10/31/mockjs/" data-id="cm2x9lcb30001bs4g0a5d9jyr" data-title="Mock.js" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%A5%E8%87%AACSDN-Mock-js-%E8%B6%85%E5%85%A8-%E8%B6%85%E8%AF%A6%E7%BB%86%E6%80%BB%E7%BB%93-%E4%BF%9D%E5%A7%86%E7%BA%A7%E5%88%AB%E7%9A%84%E6%95%99%E7%A8%8B-mockjs-CSDN%E5%8D%9A%E5%AE%A2/" rel="tag">来自CSDN -- Mock.js 超全 超详细总结 保姆级别的教程_mockjs-CSDN博客</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-post" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/10/30/post/" class="article-date">
@@ -101,7 +183,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://duwhywu.github.io/2024/10/30/post/" data-id="cm2ve7w5v0000qk4ga0af0k0k" data-title="post" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://duwhywu.github.io/2024/10/30/post/" data-id="cm2x9lcb40002bs4g31rw3bz1" data-title="post" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -694,7 +776,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://duwhywu.github.io/2024/10/30/js/" data-id="cm2ve7w610003qk4g509ra0nj" data-title="JS" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://duwhywu.github.io/2024/10/30/js/" data-id="cm2x9lcb70004bs4g7sklefns" data-title="JS" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -747,7 +829,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://duwhywu.github.io/2024/10/30/hello-world/" data-id="cm2ve7w5z0001qk4g6yf3baur" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://duwhywu.github.io/2024/10/30/hello-world/" data-id="cm2x9lcay0000bs4g5miqcfnu" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -772,7 +854,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%A5%E8%87%AA-JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%88%E7%AC%AC4%E7%89%88%EF%BC%89/" rel="tag">来自 -- JavaScript高级程序设计（第4版）</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%A5%E8%87%AA-JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%88%E7%AC%AC4%E7%89%88%EF%BC%89/" rel="tag">来自 -- JavaScript高级程序设计（第4版）</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%A5%E8%87%AACSDN-Mock-js-%E8%B6%85%E5%85%A8-%E8%B6%85%E8%AF%A6%E7%BB%86%E6%80%BB%E7%BB%93-%E4%BF%9D%E5%A7%86%E7%BA%A7%E5%88%AB%E7%9A%84%E6%95%99%E7%A8%8B-mockjs-CSDN%E5%8D%9A%E5%AE%A2/" rel="tag">来自CSDN -- Mock.js 超全 超详细总结 保姆级别的教程_mockjs-CSDN博客</a></li></ul>
     </div>
   </div>
 
@@ -782,7 +864,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/%E6%9D%A5%E8%87%AA-JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%88%E7%AC%AC4%E7%89%88%EF%BC%89/" style="font-size: 10px;">来自 -- JavaScript高级程序设计（第4版）</a>
+      <a href="/tags/%E6%9D%A5%E8%87%AA-JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%88%E7%AC%AC4%E7%89%88%EF%BC%89/" style="font-size: 10px;">来自 -- JavaScript高级程序设计（第4版）</a> <a href="/tags/%E6%9D%A5%E8%87%AACSDN-Mock-js-%E8%B6%85%E5%85%A8-%E8%B6%85%E8%AF%A6%E7%BB%86%E6%80%BB%E7%BB%93-%E4%BF%9D%E5%A7%86%E7%BA%A7%E5%88%AB%E7%9A%84%E6%95%99%E7%A8%8B-mockjs-CSDN%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">来自CSDN -- Mock.js 超全 超详细总结 保姆级别的教程_mockjs-CSDN博客</a>
     </div>
   </div>
 
@@ -802,6 +884,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/10/31/mockjs/">Mock.js</a>
+          </li>
         
           <li>
             <a href="/2024/10/30/post/">post</a>
