@@ -1,12 +1,25 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
   
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <title>JS | duwhywu的个人博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="js中的对象、类与面向对象编程小结对象在代码执行过程中的任何时候都可以被创建和增强，具有极大的动态性，并不是严格定义的实体。下面的模式适用于创建对象。 工厂模式就是一个简单的函数，这个函数可以创建对象，为它添加属性和方法，然后返回这个对象。这个模式在构造函数模式出现后就很少用了。 使用构造函数模式可以自定义引用类型，可以使用new 关键字像创建内置类型实例一样创建自定义类型的实例。不过，构造函">
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="duwhywu">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="js中的对象、类与面向对象编程小结对象在代码执行过程中的任何时候都可以被创建和增强，具有极大的动态性，并不是严格定义的实体。下面的模式适用于创建对象。 工厂模式就是一个简单的函数，这个函数可以创建对象，为它添加属性和方法，然后返回这个对象。这个模式在构造函数模式出现后就很少用了。 使用构造函数模式可以自定义引用类型，可以使用new 关键字像创建内置类型实例一样创建自定义类型的实例。不过，构造函">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS">
 <meta property="og:url" content="https://duwhywu.github.io/2024/10/30/js/index.html">
@@ -20,89 +33,254 @@
 <meta property="article:modified_time" content="2024-10-30T04:39:14.534Z">
 <meta property="article:author" content="duwhywu">
 <meta property="article:tag" content="来自 -- JavaScript高级程序设计（第4版）">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241023150407470.png">
   
-    <link rel="alternate" href="/atom.xml" title="duwhywu的个人博客" type="application/atom+xml">
   
   
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+  <title>JS - duwhywu的个人博客</title>
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"duwhywu.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
   
 <meta name="generator" content="Hexo 7.3.0"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">duwhywu的个人博客</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">duwhywu的个人博客</a>
-        </h2>
-      
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="JS"></span>
+          
+        </div>
+
         
-          <a class="main-nav-link" href="/">Home</a>
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-10-30 12:35" pubdate>
+          2024年10月30日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          17k 字
         
-      </nav>
-      <nav id="sub-nav">
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
         
         
-          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
         
-        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://duwhywu.github.io"></form>
+          141 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
   </div>
-</header>
+</div>
 
-      <div class="outer">
-        <section id="main"><article id="post-js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/10/30/js/" class="article-date">
-  <time class="dt-published" datetime="2024-10-30T04:35:17.000Z" itemprop="datePublished">2024-10-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      JS
-    </h1>
-  
+</div>
 
-      </header>
+  </header>
+
+  <main>
     
-    <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="js中的对象、类与面向对象编程"><a href="#js中的对象、类与面向对象编程" class="headerlink" title="js中的对象、类与面向对象编程"></a>js中的对象、类与面向对象编程</h1><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>对象在代码执行过程中的任何时候都可以被创建和增强，具有极大的动态性，并不是严格定义的实体。下面的模式适用于创建对象。<br> 工厂模式就是一个简单的函数，这个函数可以创建对象，为它添加属性和方法，然后返回这个对象。这个模式在构造函数模式出现后就很少用了。<br> 使用构造函数模式可以自定义引用类型，可以使用new 关键字像创建内置类型实例一样创建自定义类型的实例。不过，构造函数模式也有不足，主要是其成员无法重用，包括函数。考虑到函数本身是松散的、弱类型的，没有理由让函数不能在多个对象实例间共享。<br> 原型模式解决了成员共享的问题，只要是添加到构造函数prototype 上的属性和方法就可以共享。而组合构造函数和原型模式通过构造函数定义实例属性，通过原型定义共享的属性和方法。<br>JavaScript 的继承主要通过原型链来实现。原型链涉及把构造函数的原型赋值为另一个类型的实例。<br>这样一来，子类就可以访问父类的所有属性和方法，就像基于类的继承那样。原型链的问题是所有继承的属性和方法都会在对象实例间共享，无法做到实例私有。盗用构造函数模式通过在子类构造函数中调用父类构造函数，可以避免这个问题。这样可以让每个实例继承的属性都是私有的，但要求类型只能通过构造函数模式来定义（因为子类不能访问父类原型上的方法）。目前最流行的继承模式是组合继承，即通过原型链继承共享的属性和方法，通过盗用构造函数继承实例属性。<br>除上述模式之外，还有以下几种继承模式。<br> 原型式继承可以无须明确定义构造函数而实现继承，本质上是对给定对象执行浅复制。这种操作的结果之后还可以再进一步增强。<br> 与原型式继承紧密相关的是寄生式继承，即先基于一个对象创建一个新对象，然后再增强这个新对象，最后返回新对象。这个模式也被用在组合继承中，用于避免重复调用父类构造函数导致的浪费。<br> 寄生组合继承被认为是实现基于类型继承的最有效方式。<br>ECMAScript 6 新增的类很大程度上是基于既有原型机制的语法糖。类的语法让开发者可以优雅地定义向后兼容的类，既可以继承内置类型，也可以继承自定义类型。类有效地跨越了对象实例、对象原型和对象类之间的鸿沟。</p>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">JS</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="js中的对象、类与面向对象编程"><a href="#js中的对象、类与面向对象编程" class="headerlink" title="js中的对象、类与面向对象编程"></a>js中的对象、类与面向对象编程</h1><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>对象在代码执行过程中的任何时候都可以被创建和增强，具有极大的动态性，并不是严格定义的实体。下面的模式适用于创建对象。<br> 工厂模式就是一个简单的函数，这个函数可以创建对象，为它添加属性和方法，然后返回这个对象。这个模式在构造函数模式出现后就很少用了。<br> 使用构造函数模式可以自定义引用类型，可以使用new 关键字像创建内置类型实例一样创建自定义类型的实例。不过，构造函数模式也有不足，主要是其成员无法重用，包括函数。考虑到函数本身是松散的、弱类型的，没有理由让函数不能在多个对象实例间共享。<br> 原型模式解决了成员共享的问题，只要是添加到构造函数prototype 上的属性和方法就可以共享。而组合构造函数和原型模式通过构造函数定义实例属性，通过原型定义共享的属性和方法。<br>JavaScript 的继承主要通过原型链来实现。原型链涉及把构造函数的原型赋值为另一个类型的实例。<br>这样一来，子类就可以访问父类的所有属性和方法，就像基于类的继承那样。原型链的问题是所有继承的属性和方法都会在对象实例间共享，无法做到实例私有。盗用构造函数模式通过在子类构造函数中调用父类构造函数，可以避免这个问题。这样可以让每个实例继承的属性都是私有的，但要求类型只能通过构造函数模式来定义（因为子类不能访问父类原型上的方法）。目前最流行的继承模式是组合继承，即通过原型链继承共享的属性和方法，通过盗用构造函数继承实例属性。<br>除上述模式之外，还有以下几种继承模式。<br> 原型式继承可以无须明确定义构造函数而实现继承，本质上是对给定对象执行浅复制。这种操作的结果之后还可以再进一步增强。<br> 与原型式继承紧密相关的是寄生式继承，即先基于一个对象创建一个新对象，然后再增强这个新对象，最后返回新对象。这个模式也被用在组合继承中，用于避免重复调用父类构造函数导致的浪费。<br> 寄生组合继承被认为是实现基于类型继承的最有效方式。<br>ECMAScript 6 新增的类很大程度上是基于既有原型机制的语法糖。类的语法让开发者可以优雅地定义向后兼容的类，既可以继承内置类型，也可以继承自定义类型。类有效地跨越了对象实例、对象原型和对象类之间的鸿沟。</p>
 <h2 id="理解对象"><a href="#理解对象" class="headerlink" title="理解对象"></a>理解对象</h2><p>讲讲属性：</p>
 <p>属性分两种：<strong>数据属性</strong>和<strong>访问器属性</strong>。</p>
 <h3 id="数据属性-Object-defineProperty"><a href="#数据属性-Object-defineProperty" class="headerlink" title="数据属性(Object.defineProperty())"></a><strong>数据属性</strong>(Object.defineProperty())</h3><p>（它包含的是一个数据值的位置，在这可以对数据值进行读写）</p>
@@ -124,7 +302,7 @@
 <p>let descriptor2 &#x3D; Object.getOwnPropertyDescriptor(book, “year”);<br>console.log(descriptor2.value); &#x2F;&#x2F; undefined<br>console.log(descriptor2.enumerable); &#x2F;&#x2F; false<br>console.log(typeof descriptor2.get); &#x2F;&#x2F; “function”</p>
 <p>对于数据属性years，value 等于原来的值，configurable 是false，get 是undefined。对于访问器属性year，value 是undefined，enumerable 是false，get 是一个指向获取函数的指针。</p>
 <h3 id="合并对象-Object-assign"><a href="#合并对象-Object-assign" class="headerlink" title="合并对象(Object.assign())"></a>合并对象(Object.assign())</h3><p>就是把源对象所有的本地属性一起复制到目标对象上。有时候这种操作也被称为“混入”（mixin）。合并对象有**Object.assign()**方法。这个方法接收一个目标对象和一个或多个源对象作为参数，然后将每个源对象中可枚举（Object.propertyIsEnumerable()返回true）和自有（Object.hasOwnProperty()返回true）属性复制到目标对象。以字符串和符号为键的属性会被复制。对每个符合条件的属性，这个方法会使用源对象上的[[Get]]取得属性的值，然后使用目标对象上的[[Set]]设置属性的值。</p>
-<p>（解释一下：通过调用hasOwnProperty()能够清楚地看到访问的是实例属性还是原型属性。调用person1.hasOwnProperty(“name”)只在重写person1 上name 属性的情况下才返回true，表明此时name 是一个实例属性，不是原型属性。如下图：<img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241023150407470.png" alt="image-20241023150407470">）</p>
+<p>（解释一下：通过调用hasOwnProperty()能够清楚地看到访问的是实例属性还是原型属性。调用person1.hasOwnProperty(“name”)只在重写person1 上name 属性的情况下才返回true，表明此时name 是一个实例属性，不是原型属性。如下图：<img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241023150407470.png" srcset="/img/loading.gif" lazyload alt="image-20241023150407470">）</p>
 <p>let dest, src, result;<br>&#x2F;**</p>
 <p>简单复制<br><em>&#x2F;<br>dest &#x3D; {};<br>src &#x3D; { id: ‘src’ };<br>result &#x3D; Object.assign(dest, src);<br>&#x2F;&#x2F; Object.assign 修改目标对象<br>&#x2F;&#x2F; 也会返回修改后的目标对象<br>console.log(dest &#x3D;&#x3D;&#x3D; result); &#x2F;&#x2F; true<br>console.log(dest !&#x3D;&#x3D; src); &#x2F;&#x2F; true<br>console.log(result); &#x2F;&#x2F; { id: src }<br>console.log(dest); &#x2F;&#x2F; { id: src }<br>&#x2F;</em>*</p>
 <p>多个源对象<br><em>&#x2F;<br>dest &#x3D; {};<br>result &#x3D; Object.assign(dest, { a: ‘foo’ }, { b: ‘bar’ });<br>console.log(result); &#x2F;&#x2F; { a: foo, b: bar }<br>&#x2F;</em>*</p>
@@ -155,10 +333,10 @@
 <h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>重温一下构造函数、原型和实例的关系：每个构造函数都有一个原型对象，原型有<br>一个属性指回构造函数，而实例有一个内部指针指向原型，<strong>如下</strong>：</p>
 <p>在 JavaScript 中，每个构造函数都有一个 <code>prototype</code> 属性，这个属性是一个对象，称为“原型对象”。原型对象中有一个特殊的属性 <code>constructor</code>，它指回构造函数本身。同时，每个通过构造函数创建的实例对象都有一个内部属性（通常表示为 <code>[[Prototype]]</code>），这个内部属性指向构造函数的原型对象。</p>
 <p>假设我们有一个构造函数 <code>Person</code>：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params">name, age</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span> = age;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>在这个构造函数中，<code>Person.prototype</code> 是一个对象，它有一个 <code>constructor</code> 属性，指向 <code>Person</code> 构造函数：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">constructor</span> === <span class="title class_">Person</span>); <span class="comment">// 输出: true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">constructor</span> === <span class="hljs-title class_">Person</span>); <span class="hljs-comment">// 输出: true</span><br></code></pre></td></tr></table></figure>
 
 <p>当我们使用 <code>new</code> 关键字创建 <code>Person</code> 的实例时，JavaScript 会执行以下步骤：</p>
 <ol>
@@ -167,13 +345,13 @@
 <li>执行构造函数，将 <code>this</code> 绑定到新对象。</li>
 <li>返回新对象。</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;Alice&quot;</span>, <span class="number">30</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> person1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-number">30</span>);<br></code></pre></td></tr></table></figure>
 
 <p>在 <code>person1</code> 这个实例对象中，有一个内部指针 <code>[[Prototype]]</code> 指向 <code>Person.prototype</code>。虽然这个内部指针在 JavaScript 中不能直接访问，但可以通过 <code>Object.getPrototypeOf</code> 方法来查看：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">getPrototypeOf</span>(person1) === <span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>); <span class="comment">// 输出: true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>(person1) === <span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>); <span class="hljs-comment">// 输出: true</span><br></code></pre></td></tr></table></figure>
 
 <p>通过原型链，实例对象可以访问原型对象上的属性和方法。例如，如果我们在 <code>Person.prototype</code> 上定义一个方法 <code>sayHello</code>，那么所有 <code>Person</code> 的实例都可以访问这个方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">sayHello</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Hello, my name is <span class="subst">$&#123;<span class="variable language_">this</span>.name&#125;</span> and I am <span class="subst">$&#123;<span class="variable language_">this</span>.age&#125;</span> years old.`</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">person1.<span class="title function_">sayHello</span>(); <span class="comment">// 输出: Hello, my name is Alice and I am 30 years old.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">sayHello</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Hello, my name is <span class="hljs-subst">$&#123;<span class="hljs-variable language_">this</span>.name&#125;</span> and I am <span class="hljs-subst">$&#123;<span class="hljs-variable language_">this</span>.age&#125;</span> years old.`</span>);<br>&#125;;<br><br>person1.<span class="hljs-title function_">sayHello</span>(); <span class="hljs-comment">// 输出: Hello, my name is Alice and I am 30 years old.</span><br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><strong>构造函数</strong>：<code>Person</code>。</li>
@@ -647,9 +825,9 @@
 </tbody></table>
 <h2 id="12-2-location-对象"><a href="#12-2-location-对象" class="headerlink" title="12.2 location 对象"></a>12.2 location 对象</h2><p>location 是最有用的BOM 对象之一，提供了当前窗口中加载文档的信息，以及通常的导航功能。它<strong>既是window 的属性， 也是document 的属性</strong>。也就是说，<strong>window.location 和document.location 指向同一个对象</strong></p>
 <p>假设浏览器当前加载的URL 是<a target="_blank" rel="noopener" href="http://foouser:barpassword@www.wrox.com/WileyCDA/?q=">http://foouser:barpassword@www.wrox.com:80/WileyCDA/?q=</a><br>javascript#contents，location 对象的内容如下表所示。</p>
-<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241028103634325.png" alt="image-20241028103634325"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241028103634325.png" srcset="/img/loading.gif" lazyload alt="image-20241028103634325"></p>
 <h2 id="12-4-screen-对象"><a href="#12-4-screen-对象" class="headerlink" title="12.4 screen 对象"></a>12.4 screen 对象</h2><p>window 的另一个属性screen 对象，是为数不多的几个在编程中很少用的JavaScript 对象。这个对<br>象中保存的纯粹是客户端能力信息，也就是浏览器窗口外面的客户端显示器的信息，比如像素宽度和像<br>素高度。每个浏览器都会在screen 对象上暴露不同的属性。下表总结了这些属性。</p>
-<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241028104106884.png" alt="image-20241028104106884"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241028104106884.png" srcset="/img/loading.gif" lazyload alt="image-20241028104106884"></p>
 <h2 id="12-5-history-对象"><a href="#12-5-history-对象" class="headerlink" title="12.5 history 对象"></a>12.5 history 对象</h2><p>history 对象表示当前窗口首次使用以来用户的导航历史记录。因为history 是window 的属性，<br>所以每个window 都有自己的history 对象。出于安全考虑，这个对象<strong>不会暴露用户访问过的URL</strong>，<br>但可以通过它在不知道实际URL 的情况下前进和后退。</p>
 <h3 id="12-5-1-导航"><a href="#12-5-1-导航" class="headerlink" title="12.5.1 导航"></a>12.5.1 导航</h3><p><strong>go()方法</strong>可以在用户历史记录中沿任何方向导航，可以前进也可以后退。这个方法<strong>只接收一个参数</strong>，<br><strong>这个参数可以是一个整数，表示前进或后退多少步。</strong></p>
 <p>go()有两个简写方法：back()和forward()。顾名思义，这两个方法模拟了浏览器的后退按钮和<br>前进按钮。</p>
@@ -658,146 +836,350 @@
 <h2 id="13-1-能力检测"><a href="#13-1-能力检测" class="headerlink" title="13.1 能力检测"></a>13.1 能力检测</h2><p><strong>能力检测（又称特性检测）</strong>即在JavaScript 运行时中使用一套简单的检测逻辑，测试浏览器是否支持某种特性。这种方式不要求事先知道特定浏览器的信息，只需检测自己关心的能力是否存在即可。</p>
 <h3 id="13-1-1-安全能力检测"><a href="#13-1-1-安全能力检测" class="headerlink" title="13.1.1 安全能力检测"></a>13.1.1 安全能力检测</h3><p>能力检测最有效的场景是检测能力是否存在的同时，验证其是否能够展现出预期的行为。</p>
 
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%9D%A5%E8%87%AA-JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%88%E7%AC%AC4%E7%89%88%EF%BC%89/" class="print-no-link">#来自 -- JavaScript高级程序设计（第4版）</a>
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://duwhywu.github.io/2024/10/30/js/" data-id="cm31ed4ag0003ag4g36zaewsg" data-title="JS" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%A5%E8%87%AA-JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%88%E7%AC%AC4%E7%89%88%EF%BC%89/" rel="tag">来自 -- JavaScript高级程序设计（第4版）</a></li></ul>
+  
+</div>
 
-    </footer>
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>JS</div>
+      <div>https://duwhywu.github.io/2024/10/30/js/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>duwhywu</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年10月30日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2024/10/31/mockjs/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          Mock.js
-        
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/10/31/mockjs/" title="Mock.js">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Mock.js</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/10/30/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
-    </a>
-  
-  
-    <a href="/2024/10/30/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%A5%E8%87%AA-JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%88%E7%AC%AC4%E7%89%88%EF%BC%89/" rel="tag">来自 -- JavaScript高级程序设计（第4版）</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%A5%E8%87%AACSDN-Mock-js-%E8%B6%85%E5%85%A8-%E8%B6%85%E8%AF%A6%E7%BB%86%E6%80%BB%E7%BB%93-%E4%BF%9D%E5%A7%86%E7%BA%A7%E5%88%AB%E7%9A%84%E6%95%99%E7%A8%8B-mockjs-CSDN%E5%8D%9A%E5%AE%A2/" rel="tag">来自CSDN -- Mock.js 超全 超详细总结 保姆级别的教程_mockjs-CSDN博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%A5%E8%87%AA%EF%BC%9A-CSS%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86-%E7%9F%A5%E4%B9%8E-https-zhuanlan-zhihu-com-p-68801601/" rel="tag">来自：[CSS基础知识整理 - 知乎](https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;68801601)</a></li></ul>
     </div>
-  </div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/%E6%9D%A5%E8%87%AA-JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%88%E7%AC%AC4%E7%89%88%EF%BC%89/" style="font-size: 10px;">来自 -- JavaScript高级程序设计（第4版）</a> <a href="/tags/%E6%9D%A5%E8%87%AACSDN-Mock-js-%E8%B6%85%E5%85%A8-%E8%B6%85%E8%AF%A6%E7%BB%86%E6%80%BB%E7%BB%93-%E4%BF%9D%E5%A7%86%E7%BA%A7%E5%88%AB%E7%9A%84%E6%95%99%E7%A8%8B-mockjs-CSDN%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">来自CSDN -- Mock.js 超全 超详细总结 保姆级别的教程_mockjs-CSDN博客</a> <a href="/tags/%E6%9D%A5%E8%87%AA%EF%BC%9A-CSS%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86-%E7%9F%A5%E4%B9%8E-https-zhuanlan-zhihu-com-p-68801601/" style="font-size: 10px;">来自：[CSS基础知识整理 - 知乎](https://zhuanlan.zhihu.com/p/68801601)</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">十月 2024</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/11/03/css/">CSS基础知识整理</a>
-          </li>
-        
-          <li>
-            <a href="/2024/10/31/mockjs/">Mock.js</a>
-          </li>
-        
-          <li>
-            <a href="/2024/10/30/js/">JS</a>
-          </li>
-        
-          <li>
-            <a href="/2024/10/30/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
+    <div class="side-col d-none d-lg-block col-lg-2">
       
-      &copy; 2024 duwhywu<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
-    <nav id="mobile-nav">
+  </div>
+</div>
+
+
+
+
+
   
-    <a href="/" class="mobile-nav-link">Home</a>
+
+
+
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+
+
+
   
-</nav>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-<script src="/js/jquery-3.6.4.min.js"></script>
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
 
 
 
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
 
-<script src="/js/script.js"></script>
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
-  </div>
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
