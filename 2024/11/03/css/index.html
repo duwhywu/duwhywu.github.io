@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="duwhywu的个人博客">
 <meta property="og:description" content="CSS基础知识整理来自：CSS基础知识整理 - 知乎1 什么是CSS？CSS通常称为CSS样式表或层叠样式表（级联样式表），主要用于设置HTML页面中的文本内容（字体、大小、对齐方式等）、图片的外形（宽高、边框样式、边距等）以及版面的布局等外观显示样式。（总结：设置样式用的） 2 CSS语法CSS基础语法CSS规则由两个主要部分构成：选择器以及一条或多条声明。 3 创建CSSCSS 创建样式表分为">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-11-03T09:02:30.000Z">
-<meta property="article:modified_time" content="2024-11-04T08:26:43.519Z">
+<meta property="article:published_time" content="2024-11-03T04:35:17.000Z">
+<meta property="article:modified_time" content="2024-11-04T08:39:55.398Z">
 <meta property="article:author" content="duwhywu">
 <meta property="article:tag" content="来自：[CSS基础知识整理 - 知乎](https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;68801601)">
 <meta name="twitter:card" content="summary_large_image">
@@ -211,7 +211,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-11-03 17:02" pubdate>
+        <time datetime="2024-11-03 12:35" pubdate>
           2024年11月3日 下午
         </time>
       </span>
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.5k 字
+          5.2k 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          38 分钟
+          44 分钟
         
       </span>
     
@@ -304,33 +304,39 @@
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">语法：<br>标签名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;  或者<br>元素名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;<br></code></pre></td></tr></table></figure>
 
 <p>标签选择器<strong>最大的优点是能快速为页面中同类型的标签统一样式，同时这也是他的缺点，不能设计差异化样式</strong>。</p>
-<h1 id="CSS主要内容（重点⭐）"><a href="#CSS主要内容（重点⭐）" class="headerlink" title="CSS主要内容（重点⭐）"></a>CSS主要内容（重点⭐）</h1><h3 id="6-CSS背景-background"><a href="#6-CSS背景-background" class="headerlink" title="6 CSS背景(background)"></a><strong>6 CSS背景(background)</strong></h3><p>background 属性用于定义 HTML 元素的背景， CSS 属性有<strong>五</strong>种：</p>
+<h1 id="CSS主要内容（重点⭐）"><a href="#CSS主要内容（重点⭐）" class="headerlink" title="CSS主要内容（重点⭐）"></a>CSS主要内容（重点⭐）</h1><h5 id=""><a href="#" class="headerlink" title="&lt;注意：接受值以一些特定的值来概括情况，如使用left概括right，top概括bottom，red概括所有颜色等&gt;"></a>&lt;注意：接受值以一些特定的值来概括情况，如使用left概括right，top概括bottom，red概括所有颜色等&gt;</h5><h3 id="6-CSS背景-background"><a href="#6-CSS背景-background" class="headerlink" title="6 CSS背景(background)"></a><strong>6 CSS背景(background)</strong></h3><p>background 属性用于定义 HTML 元素的背景， CSS 属性有<strong>五</strong>种：</p>
 <table>
 <thead>
 <tr>
 <th>属性</th>
 <th>作用</th>
+<th>接受值</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>background-color</td>
 <td>背景颜色</td>
+<td>red&#x2F;rgb(0,0,0)</td>
 </tr>
 <tr>
 <td>background-image</td>
 <td>背景图像</td>
+<td>url()</td>
 </tr>
 <tr>
 <td>background-repeat</td>
 <td>背景图像设置水平或垂直平铺或不平铺</td>
+<td>no-repeat&#x2F;repeat&#x2F;repeat-x(y)&#x2F;inherit</td>
 </tr>
 <tr>
 <td>background-position</td>
 <td>背景图像设置定位</td>
+<td>center&#x2F;left&#x2F;left top</td>
 </tr>
 <tr>
 <td>background-attachment</td>
 <td>背景图像设置固定或滚动</td>
+<td>scroll&#x2F;fixed&#x2F;local</td>
 </tr>
 </tbody></table>
 <p>背景属性<strong>简写</strong>：</p>
@@ -342,43 +348,53 @@
 <tr>
 <th>属性</th>
 <th>作用</th>
+<th>接受值</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>color</td>
 <td>文本颜色</td>
+<td>red&#x2F;rgb(0,0,0)</td>
 </tr>
 <tr>
 <td>text-align</td>
 <td>文本对齐方式</td>
+<td>left&#x2F;center&#x2F;justify&#x2F;inherit</td>
 </tr>
 <tr>
 <td>text-decoration</td>
 <td>文本修饰：用来设置或删除文本的修饰。主要是用来删除超链接的下划线，也可以使用其他值来设置文本的修饰</td>
+<td>none&#x2F;underline&#x2F;overline&#x2F;line-through&#x2F;blink&#x2F;inherit</td>
 </tr>
 <tr>
 <td>text-shadow</td>
 <td>设置文本阴影</td>
+<td><em>h-shadow v-shadow blur color</em></td>
 </tr>
 <tr>
 <td>text-indent</td>
 <td>文本缩进：用来指定文本的首行缩进，允许为负值，如果值是负数，第一行则向左缩进。</td>
+<td>length&#x2F;%&#x2F;inherit</td>
 </tr>
 <tr>
 <td>line-height</td>
 <td>文本间距：行高，也就是文本行的高度</td>
+<td>normal&#x2F;number&#x2F;length&#x2F;%&#x2F;inherit</td>
 </tr>
 <tr>
 <td>letter-spacing &#x2F; word-spacing</td>
 <td>这两个属性都可用来增加或减少文本间的空白，即字间距。不同的是：letter-spacing 属性<strong>设置字符间距</strong>，而 word-spacing 属性<strong>设置单词间距</strong>。</td>
+<td>normal&#x2F;length&#x2F;inherit</td>
 </tr>
 <tr>
 <td>white-space</td>
 <td>文本空白处理：指定元素内的空白如何处理，默认值为 normal 空白，会被浏览器忽略。</td>
+<td>normal&#x2F;pre&#x2F;nowrap&#x2F;pre-wrap&#x2F;pre-line&#x2F;inherit</td>
 </tr>
 <tr>
 <td>text-transform</td>
 <td>文本转换：是用来指定在一个文本中的大写和小写字母，可用于将所有字句变成大写或小写字母，或每个单词的首字母大写。</td>
+<td>none&#x2F;capitalize&#x2F;uppercase&#x2F;lowercase&#x2F;inherit</td>
 </tr>
 </tbody></table>
 <h3 id="8-CSS字体-font"><a href="#8-CSS字体-font" class="headerlink" title="8 CSS字体 (font)"></a><strong>8 CSS字体 (font)</strong></h3><p>font 属性可用于<strong>设置文本字体，定义样式，如加粗，大小等，属于复合属性</strong>，也叫做简写属性。</p>
@@ -750,6 +766,91 @@
 <tr>
 <td>align-self</td>
 <td>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code>。</td>
+</tr>
+</tbody></table>
+<h3 id="25-过渡"><a href="#25-过渡" class="headerlink" title="25 过渡"></a>25 过渡</h3><p>CSS3 过渡是元素从一种样式逐渐改变为另一种的效果。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>transition</td>
+<td>简写属性，用于在一个属性中设置四个过渡属性。</td>
+</tr>
+<tr>
+<td>transition-property</td>
+<td>规定应用过渡的 CSS 属性的名称。</td>
+</tr>
+<tr>
+<td>transition-duration</td>
+<td>定义过渡效果花费的时间。默认是 0。</td>
+</tr>
+<tr>
+<td>transition-timing-function</td>
+<td>规定过渡效果的时间曲线。默认是 “ease”。</td>
+</tr>
+<tr>
+<td>transition-delay</td>
+<td>规定过渡效果何时开始。默认是 0。</td>
+</tr>
+</tbody></table>
+<h3 id="26-动画"><a href="#26-动画" class="headerlink" title="26 动画"></a>26 动画</h3><p>要创建 CSS3 动画，你需要了解 @keyframes 规则。@keyframes 规则是创建动画。</p>
+<p>@keyframes 规则内指定一个 CSS 样式和动画将逐步从目前的样式更改为新的样式。</p>
+<p>使用百分比来规定变化发生的时间，或用关键词 “from” 和 “to”，等同于 0% 和 100%。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs css">实例 - &quot;<span class="hljs-selector-tag">from</span>&quot; 和 &quot;<span class="hljs-selector-tag">to</span>&quot;<br><span class="hljs-keyword">@keyframes</span> myfirst<br>&#123; // 由红变黄<br>    <span class="hljs-selector-tag">from</span> &#123;<span class="hljs-attribute">background</span>: red;&#125;<br>    <span class="hljs-selector-tag">to</span> &#123;<span class="hljs-attribute">background</span>: yellow;&#125;<br>&#125;<br> <br><span class="hljs-keyword">@-webkit-keyframes</span> myfirst /* Safari 与 Chrome */<br>&#123;<br>    <span class="hljs-selector-tag">from</span> &#123;<span class="hljs-attribute">background</span>: red;&#125;<br>    <span class="hljs-selector-tag">to</span> &#123;<span class="hljs-attribute">background</span>: yellow;&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>当动画为 25% 及 50% 时改变背景色，然后当动画 100% 完成时再次改变：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs css">实例 - <span class="hljs-number">0%</span> 和 <span class="hljs-number">100%</span><br><span class="hljs-keyword">@keyframes</span> myfirst<br>&#123;<br>    <span class="hljs-number">0%</span>   &#123;<span class="hljs-attribute">background</span>: red;&#125;<br>    <span class="hljs-number">25%</span>  &#123;<span class="hljs-attribute">background</span>: yellow;&#125;<br>    <span class="hljs-number">50%</span>  &#123;<span class="hljs-attribute">background</span>: blue;&#125;<br>    <span class="hljs-number">100%</span> &#123;<span class="hljs-attribute">background</span>: green;&#125;<br>&#125;<br> <br><span class="hljs-keyword">@-webkit-keyframes</span> myfirst /* Safari 与 Chrome */<br>&#123;<br>    <span class="hljs-number">0%</span>   &#123;<span class="hljs-attribute">background</span>: red;&#125;<br>    <span class="hljs-number">25%</span>  &#123;<span class="hljs-attribute">background</span>: yellow;&#125;<br>    <span class="hljs-number">50%</span>  &#123;<span class="hljs-attribute">background</span>: blue;&#125;<br>    <span class="hljs-number">100%</span> &#123;<span class="hljs-attribute">background</span>: green;&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css3-pr-animation-keyframes.html">@keyframes</a></td>
+<td>规定动画。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css3-pr-animation.html">animation</a></td>
+<td>所有动画属性的简写属性。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css3-pr-animation-name.html">animation-name</a></td>
+<td>规定 @keyframes  动画的名称。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css3-pr-animation-duration.html">animation-duration</a></td>
+<td>规定动画完成一个周期所花费的秒或毫秒。默认是  0。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css3-pr-animation-timing-function.html">animation-timing-function</a></td>
+<td>规定动画的速度曲线。默认是  “ease”。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css3-pr-animation-fill-mode.html">animation-fill-mode</a></td>
+<td>规定当动画不播放时（当动画完成时，或当动画有一个延迟未开始播放时），要应用到元素的样式。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css3-pr-animation-delay.html">animation-delay</a></td>
+<td>规定动画何时开始。默认是 0。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css3-pr-animation-iteration-count.html">animation-iteration-count</a></td>
+<td>规定动画被播放的次数。默认是 1。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css3-pr-animation-direction.html">animation-direction</a></td>
+<td>规定动画是否在下一周期逆向地播放。默认是  “normal”。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css3-pr-animation-play-state.html">animation-play-state</a></td>
+<td>规定动画是否正在运行或暂停。默认是  “running”。</td>
 </tr>
 </tbody></table>
 
