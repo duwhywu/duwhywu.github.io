@@ -1,0 +1,892 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="duwhywu">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="react教程初始React 官方脚手架可能会比较简单，会缺少一些必要插件  react项目文件  react项目组件关系  主要两个库，一个是react库，另一个是reactDOM库  可以实现2s后卸载root组件（使用unmount()） react与jsx组件化开发，定义一个基本组件的东西  react组件分类  函数组件，直接返回一个jsx格式的文件（现在主流新写法） class类组件中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react教程">
+<meta property="og:url" content="https://duwhywu.github.io/2024/11/05/react/index.html">
+<meta property="og:site_name" content="duwhywu的个人博客">
+<meta property="og:description" content="react教程初始React 官方脚手架可能会比较简单，会缺少一些必要插件  react项目文件  react项目组件关系  主要两个库，一个是react库，另一个是reactDOM库  可以实现2s后卸载root组件（使用unmount()） react与jsx组件化开发，定义一个基本组件的东西  react组件分类  函数组件，直接返回一个jsx格式的文件（现在主流新写法） class类组件中">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241104231125908.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105001606377.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105003653779.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105002351044.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105003255976.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105002542551.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105002602438.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105004234482.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105004345671.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105004727783.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105005041098.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105005720121.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105005807720.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105010132652.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105010419681.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105090803061.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105091512082.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105091700870.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105091844023.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105112339435.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105112449472.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105112756890.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105113250399.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105113456291.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105113500617.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105113557470.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105113919617.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105113917696.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105114329943.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105114528634.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105114620945.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105114759316.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105120324808.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105134222862.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105134734256.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105135340849.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105135708775.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105135713455.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105135853126.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105140340958.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105151958231.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105153245861.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105154339690.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105160348386.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105161743147.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105161906220.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105210744599.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105223019156.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105223102470.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105223142806.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105224335708.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105224445016.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105224647796.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105224738100.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105224825043.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105224856905.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106102348310.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106102428607.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106103034801.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106103647694.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106103741665.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106103814127.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106111033824.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106133139352.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106135046623.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106140132734.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106140521195.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106140825148.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106140827432.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106140904488.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106141347971.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106141159568.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106141323411.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106141242788.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106141632439.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106142123321.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106145223074.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106145426082.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106145440165.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106152717524.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106152757332.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106155109733.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106155143915.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106155207818.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106155803607.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106160644518.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106160746406.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106160930307.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106161158460.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106161622443.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106161714410.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106161927562.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106161941585.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106162024250.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106163307408.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106163347778.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106163534398.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106164158191.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106164349693.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106164451750.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106164517993.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106164534249.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106164623830.png">
+<meta property="og:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106164850542.png">
+<meta property="article:published_time" content="2024-11-05T00:52:30.000Z">
+<meta property="article:modified_time" content="2024-11-18T14:22:54.642Z">
+<meta property="article:author" content="duwhywu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241104231125908.png">
+  
+  
+  
+  <title>react教程 - duwhywu的个人博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"duwhywu.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="react教程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-11-05 08:52" pubdate>
+          2024年11月5日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">react教程</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="react教程"><a href="#react教程" class="headerlink" title="react教程"></a>react教程</h1><h2 id="初始React"><a href="#初始React" class="headerlink" title="初始React"></a>初始React</h2><p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241104231125908.png" srcset="/img/loading.gif" lazyload alt="image-20241104231125908"></p>
+<p><strong>官方脚手架可能会比较简单，会缺少一些必要插件</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105001606377.png" srcset="/img/loading.gif" lazyload alt="image-20241105001606377"></p>
+<p><strong>react项目文件</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105003653779.png" srcset="/img/loading.gif" lazyload alt="image-20241105003653779"></p>
+<p><strong>react项目组件关系</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105002351044.png" srcset="/img/loading.gif" lazyload alt="image-20241105002351044"></p>
+<p>主要两个库，一个是react库，另一个是reactDOM库</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105003255976.png" srcset="/img/loading.gif" lazyload alt="image-20241105003255976"></p>
+<p>可以实现2s后卸载root组件（使用unmount()）</p>
+<h2 id="react与jsx"><a href="#react与jsx" class="headerlink" title="react与jsx"></a>react与jsx</h2><p>组件化开发，定义一个<strong>基本组件的东西</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105002542551.png" srcset="/img/loading.gif" lazyload alt="image-20241105002542551"></p>
+<p><strong>react组件分类</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105002602438.png" srcset="/img/loading.gif" lazyload alt="image-20241105002602438"></p>
+<p><strong>函数组件，直接返回一个jsx格式的文件（现在主流新写法）</strong></p>
+<p>class类组件中，要注意会返回一个render渲染函数，其作用是将组件渲染到 DOM 上</p>
+<p>示例如下，在App.js文件中<br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105004234482.png" srcset="/img/loading.gif" lazyload alt="image-20241105004234482"></p>
+<p>上面的写法<strong>使用的是jsx的写法</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105004345671.png" srcset="/img/loading.gif" lazyload alt="image-20241105004345671"></p>
+<p>注意：<strong>jsx和react相互独立</strong>，也就是写react不一定非用jsx的写法</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105004727783.png" srcset="/img/loading.gif" lazyload alt="image-20241105004727783"></p>
+<h4 id="jsx特点："><a href="#jsx特点：" class="headerlink" title="jsx特点："></a>jsx特点：</h4><p>​	<strong>1.可以和js文件混用。</strong><br>​	<strong>2.写法和js非常接近。</strong></p>
+<p><strong>编写jsx文件的本质：</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105005041098.png" srcset="/img/loading.gif" lazyload alt="image-20241105005041098"></p>
+<p>react还可以<strong>用一个变量来存储一个组件函数</strong>，不过在导出时需要用一个 <strong>{}</strong> 来包裹。（其渲染方式非常灵活）</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105005720121.png" srcset="/img/loading.gif" lazyload alt="image-20241105005720121"></p>
+<p>jsx里面渲染不同内容的区别（不能渲染普通对象，可以渲染react.element对象）<br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105005807720.png" srcset="/img/loading.gif" lazyload alt="image-20241105005807720"></p>
+<p>例如：渲染对象时，会报错<br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105010132652.png" srcset="/img/loading.gif" lazyload alt="image-20241105010132652"></p>
+<p>其他都可以渲染成功<br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105010419681.png" srcset="/img/loading.gif" lazyload alt="image-20241105010419681"></p>
+<h2 id="react的事件绑定"><a href="#react的事件绑定" class="headerlink" title="react的事件绑定"></a>react的事件绑定</h2><p><strong>规则模式</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105090803061.png" srcset="/img/loading.gif" lazyload alt="image-20241105090803061"></p>
+<p><strong>先讲class（老写法），再讲函数式新写法</strong></p>
+<p><strong>class写法</strong>（把App用class写）<img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105091512082.png" srcset="/img/loading.gif" lazyload alt="image-20241105091512082"></p>
+<p>或是下面这样（注意：此处的<strong>onClick中调用的fn函数不要带括号</strong>，带括号的话表示这个方法绑定的是一个返回值而不是函数这个方法，而且这里<strong>要用this指向</strong>）<br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105091700870.png" srcset="/img/loading.gif" lazyload alt="image-20241105091700870"></p>
+<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><strong>注意：</strong></h4><p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105091844023.png" srcset="/img/loading.gif" lazyload alt="image-20241105091844023"></p>
+<p><strong>处理this指向方案</strong></p>
+<p>​	1.给方法调用bind</p>
+<p>​	2.写成一个匿名函数</p>
+<p>​	3.方法本身写成一个箭头函数</p>
+<p><strong>事件绑定其他操作</strong></p>
+<p>​	1.传递参数</p>
+<p>​	2.获取事件对象</p>
+<p>​	3.阻止默认行为，冒泡等</p>
+<p><strong>1.传递参数（通过bind方法进行传递）</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105112339435.png" srcset="/img/loading.gif" lazyload alt="image-20241105112339435"></p>
+<p><strong>2.事件对象（不是原生事件对象，而是一个合成的事件对象）</strong></p>
+<p>相当于用bind进行传参的时候，函数定义那里多一个形参，那么最后一个形参就是事件对象</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105112449472.png" srcset="/img/loading.gif" lazyload alt="image-20241105112449472"></p>
+<h2 id="react组件的响应式数据"><a href="#react组件的响应式数据" class="headerlink" title="react组件的响应式数据"></a>react组件的响应式数据</h2><p>响应式数据定义在<strong>类的state属性</strong>中</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105112756890.png" srcset="/img/loading.gif" lazyload alt="image-20241105112756890"></p>
+<p><strong>es7写法</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105113250399.png" srcset="/img/loading.gif" lazyload alt="image-20241105113250399"></p>
+<p><strong>react与vue一些不同点</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105113456291.png" srcset="/img/loading.gif" lazyload alt="image-20241105113456291"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105113500617.png" srcset="/img/loading.gif" lazyload alt="image-20241105113500617"></p>
+<p>视图不会更改，而是需要<strong>使用this.setState方法来触发更新</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105113557470.png" srcset="/img/loading.gif" lazyload alt="image-20241105113557470"></p>
+<p><strong>this.setState方法的工作流程</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105113919617.png" srcset="/img/loading.gif" lazyload alt="image-20241105113919617"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105113917696.png" srcset="/img/loading.gif" lazyload alt="image-20241105113917696"></p>
+<p>this.setState方法修改参数时异步的<img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105114329943.png" srcset="/img/loading.gif" lazyload alt="image-20241105114329943"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105114528634.png" srcset="/img/loading.gif" lazyload alt="image-20241105114528634"></p>
+<p><strong>多个</strong>this.setState是使用<strong>一次更新</strong>的，而且重复<strong>修改为相同的值是会触发渲染</strong>的（<strong>这是一个典型问题</strong>）。<br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105114620945.png" srcset="/img/loading.gif" lazyload alt="image-20241105114620945"></p>
+<p>解决上面的问题方法：使用<strong>React.PureComponent</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105114759316.png" srcset="/img/loading.gif" lazyload alt="image-20241105114759316"></p>
+<p><strong>不要</strong>在render函数里面直接调用this.setState,这样会触发死循环。</p>
+<p> 注意PureComponent下对于对象和数组的修改</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105120324808.png" srcset="/img/loading.gif" lazyload alt="image-20241105120324808"></p>
+<h2 id="条件渲染和列表渲染（类似v-if-v-for）"><a href="#条件渲染和列表渲染（类似v-if-v-for）" class="headerlink" title="条件渲染和列表渲染（类似v-if&#x2F;v-for）"></a>条件渲染和列表渲染（类似v-if&#x2F;v-for）</h2><p><strong>条件渲染的本质：</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105134222862.png" srcset="/img/loading.gif" lazyload alt="image-20241105134222862"></p>
+<p> <strong>列表循环的本质：</strong><br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105134734256.png" srcset="/img/loading.gif" lazyload alt="image-20241105134734256"></p>
+<p>条件渲染和列表渲染示例：<br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105135340849.png" srcset="/img/loading.gif" lazyload alt="image-20241105135340849"></p>
+<p>Vue和React开发区别：<br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105135708775.png" srcset="/img/loading.gif" lazyload alt="image-20241105135708775"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105135713455.png" srcset="/img/loading.gif" lazyload alt="image-20241105135713455"></p>
+<p><strong>React会更灵活，Vue更方便</strong></p>
+<h2 id="React表单绑定"><a href="#React表单绑定" class="headerlink" title="React表单绑定"></a>React表单绑定</h2><p>基本思路：<br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105135853126.png" srcset="/img/loading.gif" lazyload alt="image-20241105135853126"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105140340958.png" srcset="/img/loading.gif" lazyload alt="image-20241105140340958"></p>
+<h2 id="Props和组件间的传值，插槽"><a href="#Props和组件间的传值，插槽" class="headerlink" title="Props和组件间的传值，插槽"></a>Props和组件间的传值，插槽</h2><p><strong>props：react中的核心</strong>（很多react组件的根本）</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105151958231.png" srcset="/img/loading.gif" lazyload alt="image-20241105151958231"></p>
+<p><strong>Props的类型验证和默认值</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105153245861.png" srcset="/img/loading.gif" lazyload alt="image-20241105153245861"></p>
+<p>和Vue不同，react的类型验证需要自己定义</p>
+<p><strong>模拟Vue组件的插槽方法</strong><br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105154339690.png" srcset="/img/loading.gif" lazyload alt="image-20241105154339690"></p>
+<p><strong>子往父传值：</strong>也是用<strong>props</strong>来搞定的，通过父组件使用props传递的一个方法<br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105160348386.png" srcset="/img/loading.gif" lazyload alt="image-20241105160348386"></p>
+<p><strong>兄弟组件传值：</strong><br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105161743147.png" srcset="/img/loading.gif" lazyload alt="image-20241105161743147"></p>
+<h2 id="React里的样式设置"><a href="#React里的样式设置" class="headerlink" title="React里的样式设置"></a>React里的样式设置</h2><p><strong>class和style</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105161906220.png" srcset="/img/loading.gif" lazyload alt="image-20241105161906220"></p>
+<p><strong>但是目前写法是有问题的</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105210744599.png" srcset="/img/loading.gif" lazyload alt="image-20241105210744599"></p>
+<p>使用组件名.module.css这种格式，可以防止组件全局生效。</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105223019156.png" srcset="/img/loading.gif" lazyload alt="image-20241105223019156"></p>
+<p>用的时候只需要导入，然后再在<strong>className中加入需要的样式类名</strong>即可：<br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105223102470.png" srcset="/img/loading.gif" lazyload alt="image-20241105223102470"></p>
+<p><strong>一些问题的解决：</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105223142806.png" srcset="/img/loading.gif" lazyload alt="image-20241105223142806"></p>
+<p>可以使用一些库来操作css文件：</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105224335708.png" srcset="/img/loading.gif" lazyload alt="image-20241105224335708"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105224445016.png" srcset="/img/loading.gif" lazyload alt="image-20241105224445016"></p>
+<p>如果要配合使用classnames模块化，这样操作会有所更改<br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105224647796.png" srcset="/img/loading.gif" lazyload alt="image-20241105224647796"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105224738100.png" srcset="/img/loading.gif" lazyload alt="image-20241105224738100"></p>
+<h2 id="React的生命周期："><a href="#React的生命周期：" class="headerlink" title="React的生命周期："></a>React的生命周期：</h2><p>主要分为<strong>三大阶段</strong>（相对于vue少一个create）<br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105224825043.png" srcset="/img/loading.gif" lazyload alt="image-20241105224825043"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241105224856905.png" srcset="/img/loading.gif" lazyload alt="image-20241105224856905"></p>
+<p>例如：下面是创建阶段的生命周期（无更新的生命周期）</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106102348310.png" srcset="/img/loading.gif" lazyload alt="image-20241106102348310"></p>
+<p>为什么上面的会执行两次呢？因为在根组件渲染时执行了两次。</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106102428607.png" srcset="/img/loading.gif" lazyload alt="image-20241106102428607"></p>
+<p>如何模仿PureComponent的<strong>功能之一</strong>？（防止组件未变化而更新）。</p>
+<p>可以在组件更新的生命周期那步来执行：检查数据是否一致。</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106103034801.png" srcset="/img/loading.gif" lazyload alt="image-20241106103034801"></p>
+<p><strong>生命周期详解：</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106103647694.png" srcset="/img/loading.gif" lazyload alt="image-20241106103647694"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106103741665.png" srcset="/img/loading.gif" lazyload alt="image-20241106103741665"></p>
+<p><strong>render函数一般别写操作，因为这样会调用组件更新，会造成死循环</strong></p>
+<p>Vue和React的<strong>更新问题</strong>的对比：</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106103814127.png" srcset="/img/loading.gif" lazyload alt="image-20241106103814127"></p>
+<h2 id="ref和context"><a href="#ref和context" class="headerlink" title="ref和context"></a>ref和context</h2><h4 id="1-ref"><a href="#1-ref" class="headerlink" title="1 ref"></a>1 ref</h4><p>如何获取组件的<strong>真实DOM</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106111033824.png" srcset="/img/loading.gif" lazyload alt="image-20241106111033824"></p>
+<h4 id="2-context"><a href="#2-context" class="headerlink" title="2 context"></a>2 context</h4><p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106133139352.png" srcset="/img/loading.gif" lazyload alt="image-20241106133139352"></p>
+<h2 id="函数组件和hook（函数组件相当于Vue3版本）"><a href="#函数组件和hook（函数组件相当于Vue3版本）" class="headerlink" title="函数组件和hook（函数组件相当于Vue3版本）"></a>函数组件和hook（函数组件相当于Vue3版本）</h2><p>函数组件与类组件的<strong>不同点</strong>：<br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106135046623.png" srcset="/img/loading.gif" lazyload alt="image-20241106135046623"></p>
+<h3 id="state的创建和更新"><a href="#state的创建和更新" class="headerlink" title="state的创建和更新"></a>state的创建和更新</h3><p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106140132734.png" srcset="/img/loading.gif" lazyload alt="image-20241106140132734"></p>
+<p><strong>响应式数据-—-修改数据的方法</strong><br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106140521195.png" srcset="/img/loading.gif" lazyload alt="image-20241106140521195"></p>
+<p>其props也不需要使用this来指向了：<br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106140825148.png" srcset="/img/loading.gif" lazyload alt="image-20241106140825148"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106140827432.png" srcset="/img/loading.gif" lazyload alt="image-20241106140827432"></p>
+<h4 id="useEffect（用来-模拟生命周期-做数据监听-作用）"><a href="#useEffect（用来-模拟生命周期-做数据监听-作用）" class="headerlink" title="useEffect（用来 模拟生命周期&#x2F;做数据监听 作用）"></a>useEffect（用来 模拟生命周期&#x2F;做数据监听 作用）</h4><p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106140904488.png" srcset="/img/loading.gif" lazyload alt="image-20241106140904488"></p>
+<p>情况一：在组件挂载和更新时使用</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106141347971.png" srcset="/img/loading.gif" lazyload alt="image-20241106141347971"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106141159568.png" srcset="/img/loading.gif" lazyload alt="image-20241106141159568"></p>
+<p>情况二：只在组件挂载时使用</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106141323411.png" srcset="/img/loading.gif" lazyload alt="image-20241106141323411"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106141242788.png" srcset="/img/loading.gif" lazyload alt="image-20241106141242788"></p>
+<p>情况三：起到监听作用，但是和vue有区别，在组件<strong>挂载时也使用（vue不同，vue的watch只在更新时使用）</strong></p>
+<h4 id="useMemo（类似于vue中的computed）"><a href="#useMemo（类似于vue中的computed）" class="headerlink" title="useMemo（类似于vue中的computed）"></a>useMemo（类似于vue中的computed）</h4><p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106141632439.png" srcset="/img/loading.gif" lazyload alt="image-20241106141632439"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106142123321.png" srcset="/img/loading.gif" lazyload alt="image-20241106142123321"></p>
+<p><strong>useMemo参数规律：和useEffect是一致的</strong></p>
+<h4 id="useCallback"><a href="#useCallback" class="headerlink" title="useCallback"></a>useCallback</h4><p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106145223074.png" srcset="/img/loading.gif" lazyload alt="image-20241106145223074"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106145426082.png" srcset="/img/loading.gif" lazyload alt="image-20241106145426082"></p>
+<p>其他一些hook函数</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106145440165.png" srcset="/img/loading.gif" lazyload alt="image-20241106145440165"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106152717524.png" srcset="/img/loading.gif" lazyload alt="image-20241106152717524"></p>
+<h2 id="高级组件（相当于复用组件）"><a href="#高级组件（相当于复用组件）" class="headerlink" title="高级组件（相当于复用组件）"></a>高级组件（相当于复用组件）</h2><p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106152757332.png" srcset="/img/loading.gif" lazyload alt="image-20241106152757332"></p>
+<h4 id="使用例子-1（组件复用）"><a href="#使用例子-1（组件复用）" class="headerlink" title="使用例子 1（组件复用）"></a>使用例子 1（组件复用）</h4><p><strong>App.js</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106155109733.png" srcset="/img/loading.gif" lazyload alt="image-20241106155109733"></p>
+<p><strong>testHoc.js</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106155143915.png" srcset="/img/loading.gif" lazyload alt="image-20241106155143915"></p>
+<p><strong>Son.js</strong></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106155207818.png" srcset="/img/loading.gif" lazyload alt="image-20241106155207818"></p>
+<h4 id="使用例子-2"><a href="#使用例子-2" class="headerlink" title="使用例子 2"></a>使用例子 2</h4><p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106155803607.png" srcset="/img/loading.gif" lazyload alt="image-20241106155803607"></p>
+<h4 id="什么时候使用高阶组件？"><a href="#什么时候使用高阶组件？" class="headerlink" title="什么时候使用高阶组件？"></a>什么时候使用高阶组件？</h4><p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106160644518.png" srcset="/img/loading.gif" lazyload alt="image-20241106160644518"></p>
+<h2 id="React的性能问题和优化"><a href="#React的性能问题和优化" class="headerlink" title="React的性能问题和优化"></a>React的性能问题和优化</h2><p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106160746406.png" srcset="/img/loading.gif" lazyload alt="image-20241106160746406"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106160930307.png" srcset="/img/loading.gif" lazyload alt="image-20241106160930307"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106161158460.png" srcset="/img/loading.gif" lazyload alt="image-20241106161158460"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106161622443.png" srcset="/img/loading.gif" lazyload alt="image-20241106161622443"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106161714410.png" srcset="/img/loading.gif" lazyload alt="image-20241106161714410"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106161927562.png" srcset="/img/loading.gif" lazyload alt="image-20241106161927562"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106161941585.png" srcset="/img/loading.gif" lazyload alt="image-20241106161941585"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106162024250.png" srcset="/img/loading.gif" lazyload alt="image-20241106162024250"></p>
+<h2 id="Route路由"><a href="#Route路由" class="headerlink" title="Route路由"></a>Route路由</h2><p>注意，react v5和v6是有很大区别的</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106163307408.png" srcset="/img/loading.gif" lazyload alt="image-20241106163307408"></p>
+<h4 id="一般前端按照React-router-dom使用"><a href="#一般前端按照React-router-dom使用" class="headerlink" title="一般前端按照React-router-dom使用"></a>一般前端按照React-router-dom使用</h4><p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106163347778.png" srcset="/img/loading.gif" lazyload alt="image-20241106163347778"></p>
+<p>步骤：首先先下载路由插件：npm install react-router-dom</p>
+<p>1:  在根组件中导入和包裹App组件<img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106163534398.png" srcset="/img/loading.gif" lazyload alt="image-20241106163534398"></p>
+<p>2：3：这两步骤是一起的：（注意：v4是只有component的，v5还有element）</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106164158191.png" srcset="/img/loading.gif" lazyload alt="image-20241106164158191"></p>
+<p>4：跳转链接（类似于vue中的 route-link ）</p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106164349693.png" srcset="/img/loading.gif" lazyload alt="image-20241106164349693"></p>
+<p><strong>或者使用Link：</strong><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106164451750.png" srcset="/img/loading.gif" lazyload alt="image-20241106164451750"></p>
+<p><strong>其他重要组件：</strong><br><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106164517993.png" srcset="/img/loading.gif" lazyload alt="image-20241106164517993"></p>
+<p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106164534249.png" srcset="/img/loading.gif" lazyload alt="image-20241106164534249"></p>
+<h4 id="嵌套路由和动态路由"><a href="#嵌套路由和动态路由" class="headerlink" title="嵌套路由和动态路由"></a>嵌套路由和动态路由</h4><p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106164623830.png" srcset="/img/loading.gif" lazyload alt="image-20241106164623830"></p>
+<h4 id="如何获取路由参数？"><a href="#如何获取路由参数？" class="headerlink" title="如何获取路由参数？"></a>如何获取路由参数？</h4><p><img src="C:\Users\26283\AppData\Roaming\Typora\typora-user-images\image-20241106164850542.png" srcset="/img/loading.gif" lazyload alt="image-20241106164850542"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>react教程</div>
+      <div>https://duwhywu.github.io/2024/11/05/react/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>duwhywu</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年11月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/11/05/webpack/" title="Webpack">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Webpack</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/10/31/mockjs/" title="Mock.js">
+                        <span class="hidden-mobile">Mock.js</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
