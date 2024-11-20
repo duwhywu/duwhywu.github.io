@@ -19,12 +19,12 @@
   <meta name="author" content="duwhywu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Blog">
+    <meta name="description" content="关于前端的一些学习记录">
 <meta property="og:type" content="website">
 <meta property="og:title" content="友链">
 <meta property="og:url" content="https://duwhywu.github.io/links/index.html">
 <meta property="og:site_name" content="duwhywu的个人博客">
-<meta property="og:description" content="Blog">
+<meta property="og:description" content="关于前端的一些学习记录">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="duwhywu">
 <meta name="twitter:card" content="summary_large_image">
@@ -277,6 +277,37 @@
 </div>
 
 
+
+
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"vudCvBa1riFQUm1P7wQVtDL4-MdYXbMMI","appKey":"WfeR3JKl51KWc3bj1izXlnHq","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://vudcvba1.api.lncldglobal.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
 
 
 
